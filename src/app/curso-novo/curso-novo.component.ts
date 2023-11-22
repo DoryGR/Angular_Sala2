@@ -14,22 +14,22 @@ export class CursoNovoComponent implements OnInit {
   curso: Curso = new Curso();
 
   constructor(private cursoService: CursoService,
-              private router: Router) { }
+    private router: Router) { }
 
-  ngOnInit(): void {}
-  
+  ngOnInit(): void { }
+
   salvar() {
-     this.cursoService.createCurso(this.curso).subscribe(
+    this.cursoService.createCurso(this.curso).subscribe(
       dado => {
-                console.log(dado)
-                this.cursoService.openSnackBar('Curso criado com sucesso !');
-                this.router.navigate(['/cursos']);
-              }
+        console.log(dado)
+        this.cursoService.openSnackBar('Curso criado com sucesso !');
+        this.router.navigate(['/cursos']);
+      }
     )
   }
 
   cancelar() {
-      this.router.navigate(['/cursos']);
+    this.router.navigate(['/cursos']);
   }
 
 }
