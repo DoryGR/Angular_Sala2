@@ -30,20 +30,14 @@ export class CursosComponent implements OnInit {
   }
 
   getCursoList() {
-
-    //Na real, não sei porque o VS está achando que o subscribe está depreciado
-    //Vou explicar aqui pra que serve o método "subscribe". 
-    //Como o próprio nome já diz, estou me inscrevendo no método getCursoList do CursoService
-    //Isto significa que sempre que houver uma alteração no conteúdo do Observable retornado getCursoList, os "dados" serão atualizados
-    //na nossa Tabela (MatTableDataSource)
     this.cursoService.getCursoList().subscribe(
-        dados => {
-          this.cursoDataSource = new MatTableDataSource<Curso>(dados as Curso[]);
-          this.cursoDataSource.paginator = this.paginator;
-          this.cursoDataSource.sort = this.sort;
-        },
-        error => console.log(error)
-      );
+      dados => {
+        this.cursoDataSource = new MatTableDataSource<Curso>(dados as Curso[]);
+        this.cursoDataSource.paginator = this.paginator;
+        this.cursoDataSource.sort = this.sort;
+      },
+      error => console.log(error)
+    );
   }
 
   filtrarCursos(event: Event) {
@@ -51,7 +45,7 @@ export class CursosComponent implements OnInit {
     this.cursoDataSource.filter = valor;
   }
 
-  deletarCurso(delcurso : Curso){
+  deletarCurso(delcurso: Curso) {
     this.cursoService.deleteCurso(delcurso.idcurso).subscribe(
       dados => {
         this.cursoService.openSnackBar('Curso excluído !');
@@ -59,7 +53,7 @@ export class CursosComponent implements OnInit {
       }
     )
   }
-  
+
   navigateToCursoNovo() {
     this.router.navigate(['/curso-novo']);
   }

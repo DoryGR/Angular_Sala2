@@ -31,6 +31,9 @@ import { CursoEditarComponent } from './curso-editar/curso-editar.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { SidenavComponent } from './template/sidenav/sidenav.component';
+import { AlunosComponent } from './alunos/alunos.component';
+import { AlunoEditarComponent } from './aluno-editar/aluno-editar.component';
+import { AlunoNovoComponent } from './aluno-novo/aluno-novo.component';
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { SidenavComponent } from './template/sidenav/sidenav.component';
     CursoEditarComponent,
     HeaderComponent,
     FooterComponent,
-    SidenavComponent
+    SidenavComponent,
+    AlunosComponent,
+    AlunoEditarComponent,
+    AlunoNovoComponent
   ],
   imports: [
     BrowserModule,
