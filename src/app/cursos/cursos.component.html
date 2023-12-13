@@ -10,11 +10,12 @@
   </mat-form-field>
   <div class="button">
     <span (click)="navigateToCursoNovo()">
-      Novo Curso <img class="img-btn" src="assets/img/adicionar.png">
+      Novo Curso <img class="img-btn" src="assets/img/adicionar.png" alt="Novo curso">
     </span>
   </div>
   <div class="table">
     <table mat-table [dataSource]="cursoDataSource" matSort>
+      <caption>Tabela de cursos</caption>
       <ng-container matColumnDef="idcurso">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Id. </th>
         <td mat-cell *matCellDef="let curso"> {{curso.idcurso}} </td>
